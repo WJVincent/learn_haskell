@@ -1,14 +1,3 @@
-doubleMe x = x + x
-
-doubleUs x y = doubleMe x + doubleMe y
-
-doubleSmallNumber x = if x > 100
-                        then x
-                        else doubleMe x
-
--- This is a function with no arguments called a definition.
-myName = "William Vincent"
-
 -- Lists are a homogenus data type. They store elements of the same type.
 lostNumbers = [4, 8, 15, 16, 23, 42]
 
@@ -55,3 +44,15 @@ fizzBuzz x = if fizz x ++ buzz x == ""
   else fizz x ++ buzz x
 
 comprehend cb start stop = [cb x | x <- [start..stop]]
+
+
+-- Multiple predicates
+-- [x | x <- [10..20], x /= 13, x /= 15, x /= 19] = [10,11,12,14,16,17,18,20]
+
+--Multiple lists
+-- [x*y | x <- [2,5,10], y <- [8,10,11]] = [16,20,22,40,50,55,80,100,110]
+-- [ x*y | x <- [2,5,10], y <- [8,10,11], x*y > 50] = [55,80,100,110]
+
+myLength list = sum [1 | _ <- list]
+
+removeNonUppercase string = [char | char <- string, char `elem` ['A'..'Z']]
